@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="./img/jarvis.png" alt="" class="jarvis">
+            <span class="name">JARVIS</span>
+            <span class="version">v0.0.3 BETA</span>
+            <span class="links"><a href="main.html">ГЛАВНАЯ</a></span>
+        </div>
+    </header>
+    <center>
+        <div class="body">
+            <br><br>
+            <!-- <div class="task"><img src="./img/close.png" alt="" class="close_task task"></div> -->
+             <div class="box">
+                Точно хотите снять задачу?
+                <div class="del_task_name"></div>
+                <br>
+                <button class="no">Нет</button>
+                <button class="yes">Да</button>
+                
+                
+             </div>
+            <div class="insert"></div>
+        </div>
+    </center>
+    
+</body>
+</html>
+<style>
+    .close_task{
+        width: 14px;
+        display: inline;
+        cursor: pointer;
+    }
+    .task_name{
+        display: inline;
+        margin-left: 10px;
+    }
+    .task{
+        width: 80%;
+        text-align: left;
+    }
+    .box{
+        position: absolute;
+        width: 200px;
+        height: 120px;
+        border: 3px solid var(--text);
+        color: var(--text);
+        margin-left: 200px;
+        opacity: 0;
+        font-size: 14px;
+        padding-top: 10px;
+    }
+    .no, .yes{
+        height: 30px;
+        width: 50px;
+        display: inline;
+        border: none;
+        border-radius: 10px;
+    }
+    .no{
+        background: #FF4242;
+    }
+    .yes{
+        background: #569F3E;
+    }
+</style>
+<script>
+    let cl = "";
+    eel.task()().then(data => {
+        for (let i = 0; i < data.length; i++) {
+            let div = document.createElement("div");
+            div.classList.add("task");
+            div.classList.add(data[i][0])
+
+            let close = document.createElement("img");
+            close.src = "./img/close.png";
+            close.classList.add("close_task"); 
+            close.classList.add(data[i][0])
+
+            let name = document.createElement("div");
+            name.innerHTML = data[i][0];
+            name.classList.add("task_name");
+
+            div.appendChild(close);
+            div.appendChild(name);
+
+            let my_div = document.querySelector(".insert"); 
+            document.querySelector(".body").insertBefore(div, my_div);
+        }
+    });
+    $(document).on('click', '.close_task', function(event) {
+        cl = event.target.className.split(" ")[1].replace(" ", "");
+        document.querySelector(".box").style.opacity = "1";
+        document.querySelector(".del_task_name").innerHTML = cl;
+        console.log(cl);
+    });
+    $(document).on('click', '.no', function(event) {
+        document.querySelector(".box").style.opacity = "0";
+    });
+    $(document).on('click', '.yes', function(event) {
+        console.log(cl);
+        document.querySelector(".box").style.opacity = "0";
+        let parent = document.querySelector(".body");
+        let child = document.querySelector('.'+cl);
+        eel.remove_task(cl)();
+        console.log(parent);
+        console.log(child);
+        parent.removeChild(child);
+    });
+</script>

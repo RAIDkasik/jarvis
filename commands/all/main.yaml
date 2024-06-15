@@ -1,0 +1,91 @@
+list:
+- arg:
+  - C:/Program Files/Telegram Desktop/Telegram.exe
+  command: ahk/start.exe
+  name: Телеграм
+  phrases:
+  - открой телеграм
+  - запусти телеграм
+  - открой telegram
+  - запусти telegram
+  voice:
+  - ok3.wav
+  - ok4.wav
+- arg:
+  - alt
+  - F4
+  command: ahk/main.exe
+  name: закрытие
+  phrases:
+  - закрой
+  - убери
+  voice:
+  - ok3.wav
+  - ok4.wav
+- arg:
+  - '+10'
+  command: ahk/volume.exe
+  name: Звук+
+  phrases:
+  - увеличь звук
+  - прибавь звук
+  - увеличить звук
+  - увеличь громкость
+  - прибавь громкость
+  - увеличить громкость
+  voice:
+  - ok3.wav
+  - ok4.wav
+- arg:
+  - '-10'
+  command: ahk/volume.exe
+  name: Звук-
+  phrases:
+  - уменьшить звук
+  - уменьши звук
+  - уменьшить громкость
+  - уменьши громкость
+  voice:
+  - ok3.wav
+  - ok4.wav
+- arg:
+  - ctrl
+  - C
+  command: ahk/main.exe
+  name: копировать
+  phrases:
+  - скопируй
+  - копировать
+  - копия
+  voice:
+  - ''
+- arg:
+  - ctrl
+  - X
+  command: ahk/main.exe
+  name: вырезать
+  phrases:
+  - вырежи
+  - вырезать
+  voice:
+  - ''
+- arg:
+  - ctrl
+  - V
+  command: ahk/main.exe
+  name: вставить
+  phrases:
+  - вставь
+  - вставить
+  voice:
+  - ''
+- arg:
+  - win
+  - D
+  command: ahk/main.exe
+  name: свернуть
+  phrases:
+  - сверни
+  - свернуть
+  voice:
+  - ''

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+    <script src="main.js"></script>
+    <script src="all.js"></script>
+</head>
+<header>
+    <div class="header">
+        <img src="./img/jarvis.png" alt="" class="jarvis">
+        <span class="name">JARVIS</span>
+        <span class="version">v0.0.3 BETA</span>
+        <span class="links"><a href="main.html">ГЛАВНАЯ</a></span>
+    </div>
+</header>
+    <br><br>
+    <div class="body">
+        <center>
+            <div class="body">
+                <form action="" id="form">
+                    <select name="" id="program">
+                    </select><br><br><br>
+                    <button class="delete_command">Удалить</button>
+                </form>
+            </div>
+        </center>
+    </div>
+</body>
+</html>
+<script>   
+    eel.expose(handleData);
+    function handleData(data) {
+        const select = document.getElementById("program");
+        for (let i = 0; i < data.length; i++){
+            let option = document.createElement("option");
+            option.text = data[i];
+            option.value = data[i];
+            select.appendChild(option);
+        }
+        
+    }
+    const form = document.querySelector('#form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        let com = document.getElementById("program").value;
+        eel.delete_command(com);
+    });
+    eel.os_listdir();
+</script>
+<style>
+    .delete_command{
+        height: 40px;
+        width: 140px;
+        border: none;
+        border-radius: 5px;
+        background-color: #FF6969;
+    }
+    .delete_command:hover{
+        background-color: #D75959;
+        cursor: pointer;
+    }
+    select{
+        height: 40px;
+        width: 230px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #616F6F;
+        color: #DDDDDD;
+    }
+    option{
+        color: #000;
+    }
+    form{
+        margin-top: 150px;
+        width: 230px;
+        text-align: left;
+        color: #DDDDDD;
+    }
+</style>

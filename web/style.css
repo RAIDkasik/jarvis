@@ -1,0 +1,127 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+:root {
+    --background:#0D1B1E;
+    --header:#3A4649;
+    --text:#616F6F;
+    --name:#F32A2A;
+    --settings:#16252B;
+}
+
+
+body{
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 1px;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-position: 50% 50%;
+    background: var(--background);
+    color: var(--text);
+}
+.settings{
+    position: absolute;
+    width: 300px;
+    background: var(--background);
+    font-size: 16px;
+    z-index: 999;
+    height: 100%;
+    padding-left: 10px;
+    opacity: 0;
+    transform: translateX(150%);
+    transition: transform 0.5s, opacity 0.5s;
+}
+.menu{
+    cursor: pointer;
+    width: 270px;
+}
+.close{
+    width: 20px; 
+    float: right; 
+    margin-right: 20px; 
+    cursor: pointer;
+}
+.st{
+    background: url("https://github.com/Priler/jarvis/blob/master/gui/public/assets/media/images/decor.png?raw=true");
+    height: 44px;
+    width: 90%;
+}
+a{
+    color: var(--text);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--text);
+    text-decoration: underline;
+    transition: .2s;
+}
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+footer span{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+footer img{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+}
+footer span span{
+    margin-top: -20px;
+    margin-left: 25px;
+}
+.selected_device{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.header{
+    height: 100px;
+    width: 100%;
+    padding: 0px;
+    /* box-shadow: 0px 0px 20px 0px rgba(60, 60, 60, 1); */
+}
+.jarvis{
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.name{
+    font-size: 30px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 15px;
+    color: var(--name);
+}
+.version{
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 15px;
+}
+
+
+.links{
+    width: 140px;
+    float: right;
+    text-align: right;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.r{
+    margin-top: 80px;
+    width: 250px;
+    height: 250px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+    <script src="main.js"></script>
+    <script src="all.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="./img/jarvis.png" alt="" class="jarvis">
+            <span class="name">JARVIS</span>
+            <span class="version">v0.0.3 BETA</span>
+            <span class="links"><a href="main.html">ГЛАВНАЯ</a></span>
+        </div>
+    </header>
+    <br><br>
+    <div class="body">
+        <center>
+            <form action="" id="form">
+                <label for="">Название</label><br>
+                <input type="text" placeholder="Telegram" id="name"><br><br><br>
+                <label for="">Путь до файла</label><br>
+                <input type="text" placeholder="C:/Program Files/Telegram Desktop/Telegram.exe" id="path"><br><br><br>
+                <button class="create_command">Добавить</button>
+            </form>
+        </center>
+    </div>
+</body>
+</html>
+<script>
+    const form = document.querySelector('#form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        let path = document.getElementById("path").value;
+        let name = document.getElementById("name").value;
+        eel.add_auto_start(path, name);
+    });
+</script>
+<style>
+    input{
+        height: 30px;
+        width: 230px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #616F6F;
+        color: #DDDDDD;
+    }
+    .create_command{
+        height: 40px;
+        width: 140px;
+        border: none;
+        border-radius: 5px;
+        background-color: #FF6969;
+    }
+    .create_command:hover{
+        background-color: #D75959;
+        cursor: pointer;
+    }
+    form{
+        width: 230px;
+        text-align: left;
+        color: #DDDDDD;
+    }
+</style>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+    <script src="https://code.angularjs.org/1.3.9/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.9/angular-route.js"></script>
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script src="main.js"></script>
+    <script src="all.js"></script>
+
+</head>
+<body>
+    <script>
+        // eel.expose(displayResult)
+        // function displayResult(result) {
+        //     document.querySelector('.selected_device').innerText = result;
+        // }
+        //eel.start_get_text();
+        $(function (){
+            $('#type').change(function(){
+                var o=document.querySelector("#text");
+                var i=document.querySelector("#in");
+                var c=document.querySelector("#commands");
+                var n=document.querySelector("#name");
+                console.log(o.text);
+                if (this.value=='ahk') {
+                    o.innerHTML = "Введите клавиши через запятую";
+                    i.placeholder = "alt, f4";
+                    n.placeholder = "close";
+                    c.placeholder = "закрой";
+                }
+                else if (this.value=='program') {
+                    o.innerHTML = "Путь до файла";
+                    i.placeholder = "C:/Program Files/Telegram Desktop/Telegram.exe";
+                    n.placeholder = "tg";
+                    c.placeholder = "открой телеграм";
+                };
+            });
+        });
+
+    </script>
+    <header>
+        <div class="header">
+            <img src="./img/jarvis.png" alt="" class="jarvis">
+            <span class="name">JARVIS</span>
+            <span class="version">v0.0.3 BETA</span>
+            <span class="links"><a href="main.html">ГЛАВНАЯ</a></span>
+        </div>
+    </header>
+    <br><br>
+    <div class="body">
+        <center>
+            <div class="form">
+                <form action="" id="form">
+                    <label for="">Короткое название</label><br>
+                    <input type="text" placeholder="chrome" id="name" required><br><br><br>
+
+                    <label for="">Тип</label><br>
+                    <select name="" id="type" required>
+                        <option value="program">Запуск программы</option>
+                        <option value="ahk">AHK</option>
+                    </select><br><br><br>
+
+                    <label for="" id="text">Путь до файла</label><br>
+                    <input type="text" id="in" placeholder="C:/" required><br><br><br>
+
+                    <label for="">Активационные команды</label><br>
+                    <textarea id="commands" name="" id="" cols="20" rows="3" placeholder="открой браузер, открой хром, открой гугл" required></textarea>
+                    <br><br>
+                    <button class="create_command">Создать команду</button>
+                </form>
+            </div>
+
+
+        </center>
+    </div>
+    
+</body>
+</html>
+<script>
+    const form = document.querySelector('#form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        let name = document.getElementById("name").value;
+        let type = document.getElementById("type").value;
+        let path = document.getElementById("in").value;
+        let com = document.getElementById("commands").value;
+        eel.create_commands(name, type, path, com);
+    });
+</script>
+<style>
+    body{
+        overflow-y: scroll;
+    }
+    select, input{
+        height: 40px;
+        width: 230px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #616F6F;
+        color: #DDDDDD;
+    }
+    form{
+        width: 230px;
+        text-align: left;
+        color: #DDDDDD;
+    }
+    textarea{
+        width: 230px;
+    }
+    .create_command{
+        height: 40px;
+        width: 140px;
+        border: none;
+        border-radius: 5px;
+        background-color: #FF6969;
+    }
+    .create_command:hover{
+        background-color: #D75959;
+        cursor: pointer;
+    }
+    option{
+        color: #000;
+    }
+    footer{
+        margin-top: 800px;
+    }
+</style>

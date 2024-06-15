@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="./img/jarvis.png" alt="" class="jarvis">
+            <span class="name">JARVIS</span>
+            <span class="version">v0.0.3 BETA</span>
+            <div class="links a_links">НАСТРОЙКИ</div>
+        </div>
+        <div class="settings">
+            <img src="./img/close.png" alt="" class="close">
+            <div class="menu create_commands">Создание команды</div><br>
+            <div class="menu delete_commands">Удаление команды</div><br>
+            <div class="menu auto_start">Добавление в автозапук</div><br>
+            <div class="menu auto_start_del">Удаление из автозапука</div><br>
+            <div class="menu task_manager">Диспетчер задач</div><br>
+            <div class="menu tg">Телеграм бот</div><br>
+        </div>
+    </header>
+    <div class="body">
+        <center>
+            <div class="st"></div>
+            <img src="./img/main1.png" alt="" class="main1">
+            <img src="./img/main5.png" alt="" class="main2">
+            <div class="st" style="position: absolute; left: 5%; bottom: 70px;"></div>
+        </center>
+    </div>
+    <center>
+        <footer><div class="selected_device"></div><span><img src="./img/tg.png" alt=""><span><a href="https://t.me/raid_kas" style="color: #776ABB;">Телеграм</a> канал</span></span><span><img src="./img/gh.png" alt=""><span><a href="https://github.com/romankrd123/jarvis" style="color: #776ABB;">GitHub</a> репозиторий</span></span></footer>
+    </center>
+</body>
+</html>
+<style>
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+    }
+    @keyframes mspin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(-360deg);}
+    }
+    .main2{
+        margin-top: 70px;
+        width: 280px;
+        height: 277px;
+        animation: spin 20s linear infinite; 
+    }
+    .main1{
+        width: 230px; 
+        position: absolute; 
+        animation: mspin 20s linear 0s infinite;
+        margin-top: 93.5px;
+        margin-left: 25.5px;
+    }
+</style>
+<script>
+    eel.selected_device()().then(data => {
+        console.log(data);
+        document.querySelector(".selected_device").innerHTML = data;
+    });
+    // async function audio(){
+    //     document.querySelector(".main2").src = "./img/main6.png";
+    //     await sleep(500);
+    //     document.querySelector(".main2").src = "./img/main5.png";
+    // }
+    // audio();
+</script>
+
+

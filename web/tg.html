@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S.</title>
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/jarvis.png">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <img src="./img/jarvis.png" alt="" class="jarvis">
+            <span class="name">JARVIS</span>
+            <span class="version">v0.0.3 BETA</span>
+            <span class="links"><a href="main.html">ГЛАВНАЯ</a></span>
+        </div>
+    </header>
+    <div class="body">
+        <br><br>
+        <center>
+            <div class="form">
+                <label for="">
+                    Ваш токен бота в телеграм: <br><br>
+                    <input type="text" name="" id="token" value="" placeholder="токен бота">
+                </label>
+                <button class="replace">Изменить</button>
+                <br><br><br>
+                <div class="inst">
+                    1. Открываете <a href="https://t.me/BotFather">@BotFather</a> <br>
+                    2. Пишите /newbot и задаете имя боту<br>
+                    3. Задаете username боту<br>
+                    4. Есди username свободен, то бот пришлет токен<br>
+                </div>
+        </center>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    :root{
+        --input-color: #DDDDDD;
+    }
+    .inst{
+        font-size: 12px;
+    }
+    .form{
+        width: 80%;
+        margin-left: 10%;
+        text-align: left;
+    }
+    label{
+        color: var(--input-color);
+    }
+    input{
+        height: 40px;
+        width: 300px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid var(--input-color);
+        color: var(--input-color);
+    }
+    .replace{
+        height: 40px;
+        border: none;
+        background: #FF4949;
+    }
+</style>
+<script>
+    eel.get_token()().then(data => {
+        document.querySelector("#token").value = data;
+    });
+    $(document).on('click', '.replace', function(event) {
+        let token = document.querySelector("#token").value;
+        eel.replace_token(token)();
+    });
+</script>

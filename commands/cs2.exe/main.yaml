@@ -1,0 +1,37 @@
+list: [
+    {
+        name: 'эко',
+        command: 'ahk/buy.ahk',
+        voice: [''],
+        phrases: ['эко', 'ecco'],
+        arg: ['F1']
+    },
+    {
+        name: 'анти-эко',
+        command: 'ahk/buy.ahk',
+        voice: [''],
+        phrases: ['анти', 'anti'],
+        arg: ['F2']
+    },
+    {
+        name: 'полу',
+        command: 'ahk/buy.ahk',
+        voice: [ '' ],
+        phrases: [ 'пол', 'half' ],
+        arg: ['F3']
+    },
+    {
+        name: 'полный',
+        command: 'ahk/buy.ahk',
+        voice: [''],
+        phrases: ['полный', 'full'],
+        arg: ['F4']
+    },
+    {
+        name: 'форс',
+        command: 'ahk/buy.ahk',
+        voice: [''],
+        phrases: ['форс', 'force'],
+        arg: ['F5']
+    }
+]

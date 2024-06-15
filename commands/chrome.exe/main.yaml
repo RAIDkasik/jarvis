@@ -1,0 +1,37 @@
+list: [
+    {
+        name: 'открытие браузера',
+        command: '/ahk/start.exe',
+        voice: [ '' ],
+        phrases: [ 'открой хром', 'запусти хром', "открой браузер", "запусти браузер", "открой гугл", "запусти гугл", "открой google", "запусти google", "browser", "chrome" ],
+        arg:  ['']
+    },
+    {
+        name: 'открытие ютуба',
+        command: "/ahk/start.exe",
+        voice: [''],
+        phrases: ['открой ютуб', "запусти ютуб", "ютуб"],
+        arg: 'youtube.com'
+    },
+    {
+        name: 'открытие яндекса',
+        command: "/ahk/start.exe",
+        voice: [ '' ],
+        phrases: [ 'открой яндекс', "запусти яндекс" ],
+        arg:  ['yandex.com']
+    },
+    {
+        name: 'открытие переводчика',
+        command: "/ahk/start.exe",
+        voice: [ '' ],
+        phrases: [ 'открой переводчик', "запусти переводчик" ],
+        arg: ['https://translate.google.com/?hl=ru&sl=en&tl=ru&op=translate']
+    },
+    {
+        name: 'закрытие всех браузеров',
+        command: '/ahk/close.exe',
+        voice: [ '' ],
+        phrases: [ 'закрой хром', "закрой браузер", "закрой гугл", "закрой google", "закрой browser", "закрой chrome", 'выключи хром', "выключи браузер", "выключи гугл", "выключи google", "выключи browser", "выключи chrome" ],
+        arg: ['']
+    },
+]
